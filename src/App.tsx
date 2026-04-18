@@ -28,7 +28,8 @@ import {
   Copy,
   ClipboardList,
   FileCheck,
-  Award
+  Award,
+  Menu
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -577,14 +578,9 @@ export default function App() {
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           onClick={() => setIsSidebarOpen(true)}
-          className="fixed left-6 top-6 z-30 p-2 bg-white/60 backdrop-blur-2xl border border-white/50 rounded-3xl text-slate-600 hover:scale-110 transition-all active:scale-90 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] overflow-hidden"
+          className="fixed left-6 top-6 z-30 p-4 bg-white/60 backdrop-blur-2xl border border-white/50 rounded-2xl text-slate-600 hover:scale-110 hover:text-pink-500 transition-all active:scale-90 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)] overflow-hidden flex items-center justify-center"
         >
-          <img 
-            src="https://iili.io/KDFk4fI.png" 
-            alt="Logo" 
-            className="w-12 h-12 object-contain"
-            referrerPolicy="no-referrer"
-          />
+          <Menu size={24} />
         </motion.button>
       )}
 
