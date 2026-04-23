@@ -264,13 +264,13 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-slate-500 text-base md:text-lg max-w-3xl mb-24 leading-relaxed font-medium"
+            className="text-slate-500 text-base md:text-lg max-w-3xl mb-12 leading-relaxed font-medium"
           >
             Platform terpadu untuk mempermudah pendataan, pemantauan, dan tindak lanjut permasalahan siswa di SMP Negeri 7 Pasuruan.
           </motion.p>
 
           {/* Combined Info Sections */}
-          <div className="space-y-32 w-full">
+          <div className="space-y-8 w-full">
             {/* 1. Kilas Aplikasi Section */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
@@ -278,7 +278,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="space-y-8"
             >
-              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl hover:bg-white/80 transition-all duration-300 flex flex-col items-center justify-center">
+              <div className="p-2 md:p-4 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl hover:bg-white/80 transition-all duration-300 flex flex-col items-center justify-center">
                 <img 
                   src={KILAS_IMAGE_URL} 
                   alt="Kilas Aplikasi SIAP SPANJU" 
@@ -294,7 +294,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="space-y-8"
             >
-              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
+              <div className="p-2 md:p-4 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
                 <img 
                   src={PETA_IMAGE_URL} 
                   alt="8 Program Prioritas SMPN 7 Pasuruan" 
@@ -308,9 +308,9 @@ export default function App() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="space-y-8"
+              className="space-y-4"
             >
-              <div className="flex flex-col gap-8 max-w-4xl mx-auto w-full">
+              <div className="flex flex-col gap-4 max-w-4xl mx-auto w-full">
                 {["https://wsrv.nl/?url=i.ibb.co.com/YFn0zsDJ/Gemini-Generated-Image-ncurlcncurlcncur.png", "https://wsrv.nl/?url=i.ibb.co.com/k2vVysT8/Gemini-Generated-Image-qg440qqg440qqg44.png", "https://wsrv.nl/?url=i.ibb.co.com/ZpFWcqq1/Gemini-Generated-Image-dqdjpdqdjpdqdjpd.png"].map((url, i) => (
                   <div key={i} className="p-4 bg-white/60 backdrop-blur-xl rounded-[2rem] border border-white/50 shadow-xl flex flex-col items-center justify-center">
                     <img 
@@ -330,7 +330,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="space-y-8"
             >
-              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
+              <div className="p-2 md:p-4 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
                 <img 
                   src="https://wsrv.nl/?url=i.ibb.co.com/99vdYcf5/Gemini-Generated-Image-kbsmjdkbsmjdkbsm.png" 
                   alt="Korelasi 8 Program Prioritas, 15 Indikator SPIP dengan 9 Aplikasi SIAP SPANJU" 
@@ -346,7 +346,7 @@ export default function App() {
               viewport={{ once: true, margin: "-100px" }}
               className="space-y-8"
             >
-              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
+              <div className="p-2 md:p-4 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
                 <img 
                   src={KORELASI_IMAGE_URL} 
                   alt="Korelasi Integrasi SIAP SPANJU dengan SRA" 
@@ -369,7 +369,7 @@ export default function App() {
               setShowKilas(false);
               window.open('https://siap-spanju.vercel.app/', '_blank');
             }}
-            className="group relative px-12 py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-full font-bold text-xl shadow-[0_10px_40px_-10px_rgba(236,72,153,0.5)] border border-white/50 overflow-hidden mt-12 mb-20"
+            className="group relative px-12 py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-full font-bold text-xl shadow-[0_10px_40px_-10px_rgba(236,72,153,0.5)] border border-white/50 overflow-hidden mt-8 mb-20"
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
             <span className="relative flex items-center gap-3">
