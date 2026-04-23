@@ -1026,47 +1026,6 @@ export default function App() {
                   <p className="text-slate-500 text-lg font-medium">Silakan pilih aplikasi yang ingin Anda buka dari daftar di bawah ini.</p>
                 </div>
 
-                {/* Survey Kepuasan Banner */}
-                <motion.a
-                  href="https://survey-kepuasan-alpha.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="block mb-10 p-8 md:p-10 bg-white/90 backdrop-blur-xl rounded-[2.5rem] border-2 border-white/80 shadow-2xl shadow-purple-200/50 hover:bg-white hover:shadow-purple-300/60 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group"
-                >
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-pink-400 to-purple-500 opacity-20 blur-3xl rounded-full -mr-20 -mt-20 group-hover:opacity-40 transition-opacity duration-700" />
-                  <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-400 to-emerald-400 opacity-20 blur-3xl rounded-full -ml-20 -mb-20 group-hover:opacity-40 transition-opacity duration-700" />
-                  
-                  <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                    <div className="flex-1 text-center md:text-left space-y-4">
-                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-100 to-purple-100 text-purple-700 font-bold text-sm uppercase tracking-widest border border-purple-200">
-                        <span className="relative flex h-3 w-3">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-600"></span>
-                        </span>
-                        Penting
-                      </div>
-                      <h3 className="text-3xl md:text-5xl font-black tracking-tight font-display bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-blue-600">
-                        Survey Kepuasan Layanan
-                      </h3>
-                      <p className="text-slate-600 text-lg md:text-xl font-medium max-w-2xl">
-                        Suara Anda sangat berarti! Bantu kami meningkatkan kualitas layanan dengan mengisi survey singkat ini.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center gap-3 shrink-0">
-                      <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-pink-500 via-purple-500 to-blue-600 p-1 shadow-xl group-hover:scale-110 transition-transform duration-500">
-                        <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
-                          <MessageSquare size={40} className="text-purple-600" />
-                        </div>
-                      </div>
-                      <span className="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl font-black text-sm shadow-lg group-hover:shadow-xl transition-all flex items-center gap-2">
-                        Mulai Survey <ExternalLink size={16} />
-                      </span>
-                    </div>
-                  </div>
-                </motion.a>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {EXTERNAL_APPS.map((app, index) => {
