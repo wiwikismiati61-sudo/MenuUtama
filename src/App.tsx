@@ -216,19 +216,18 @@ export default function App() {
 
   if (!hasEntered) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-blue-50 flex flex-col items-center justify-center p-6 relative overflow-hidden font-sans">
+      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-blue-50 flex flex-col items-center p-6 relative font-sans overflow-y-auto overflow-x-hidden">
         {/* Decorative elements */}
-        <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-pink-300/30 rounded-full blur-[100px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-blue-300/30 rounded-full blur-[100px]" />
-        <div className="absolute top-[40%] left-[40%] w-64 h-64 bg-purple-300/20 rounded-full blur-[80px]" />
-        <div className="absolute top-[20%] right-[10%] w-32 h-32 bg-white/50 rounded-full blur-2xl" />
+        <div className="fixed top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-pink-300/30 rounded-full blur-[100px] pointer-events-none" />
+        <div className="fixed bottom-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-blue-300/30 rounded-full blur-[100px] pointer-events-none" />
         
         <motion.div 
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative z-10 flex flex-col items-center text-center max-w-2xl"
+          className="relative z-10 flex flex-col items-center text-center max-w-5xl w-full py-20"
         >
+          {/* Header Section */}
           <motion.div 
             initial={{ rotate: -10, scale: 0.8 }}
             animate={{ rotate: 0, scale: 1 }}
@@ -265,27 +264,116 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-slate-500 text-base md:text-lg max-w-lg mb-12 leading-relaxed font-medium"
+            className="text-slate-500 text-base md:text-lg max-w-3xl mb-24 leading-relaxed font-medium"
           >
             Platform terpadu untuk mempermudah pendataan, pemantauan, dan tindak lanjut permasalahan siswa di SMP Negeri 7 Pasuruan.
           </motion.p>
-          
+
+          {/* Combined Info Sections */}
+          <div className="space-y-32 w-full">
+            {/* 1. Kilas Aplikasi Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
+            >
+              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl hover:bg-white/80 transition-all duration-300 flex flex-col items-center justify-center">
+                <img 
+                  src={KILAS_IMAGE_URL} 
+                  alt="Kilas Aplikasi SIAP SPANJU" 
+                  className="w-full max-w-3xl h-auto rounded-2xl shadow-md object-contain"
+                />
+              </div>
+            </motion.div>
+
+            {/* 2. 8 Program Prioritas Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
+            >
+              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
+                <img 
+                  src={PETA_IMAGE_URL} 
+                  alt="8 Program Prioritas SMPN 7 Pasuruan" 
+                  className="w-full max-w-3xl h-auto rounded-2xl shadow-md object-contain"
+                />
+              </div>
+            </motion.div>
+
+            {/* 3. 15 Indikator SPIP Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
+            >
+              <div className="flex flex-col gap-8 max-w-4xl mx-auto w-full">
+                {["https://wsrv.nl/?url=i.ibb.co.com/YFn0zsDJ/Gemini-Generated-Image-ncurlcncurlcncur.png", "https://wsrv.nl/?url=i.ibb.co.com/k2vVysT8/Gemini-Generated-Image-qg440qqg440qqg44.png", "https://wsrv.nl/?url=i.ibb.co.com/ZpFWcqq1/Gemini-Generated-Image-dqdjpdqdjpdqdjpd.png"].map((url, i) => (
+                  <div key={i} className="p-4 bg-white/60 backdrop-blur-xl rounded-[2rem] border border-white/50 shadow-xl flex flex-col items-center justify-center">
+                    <img 
+                      src={url} 
+                      alt={`15 Indikator SPIP Anti Korupsi - Bagian ${i+1}`} 
+                      className="w-full h-auto rounded-xl shadow-sm object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* 4. Korelasi Program & SPIP Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
+            >
+              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
+                <img 
+                  src="https://wsrv.nl/?url=i.ibb.co.com/99vdYcf5/Gemini-Generated-Image-kbsmjdkbsmjdkbsm.png" 
+                  alt="Korelasi 8 Program Prioritas, 15 Indikator SPIP dengan 9 Aplikasi SIAP SPANJU" 
+                  className="w-full max-w-4xl h-auto rounded-2xl shadow-md object-contain"
+                />
+              </div>
+            </motion.div>
+
+            {/* 5. Korelasi SRA Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-8"
+            >
+              <div className="p-4 md:p-8 bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/50 shadow-2xl flex flex-col items-center justify-center">
+                <img 
+                  src={KORELASI_IMAGE_URL} 
+                  alt="Korelasi Integrasi SIAP SPANJU dengan SRA" 
+                  className="w-full max-w-3xl h-auto rounded-2xl shadow-md object-contain"
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Final Button */}
           <motion.button
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             whileHover={{ scale: 1.05, translateY: -2 }}
             whileTap={{ scale: 0.95 }}
-            transition={{ delay: 0.7 }}
             onClick={() => {
               setHasEntered(true);
-              setShowKilas(true);
-              setIsSidebarOpen(false);
+              setIsSidebarOpen(true);
+              setShowKilas(false);
+              window.open('https://siap-spanju.vercel.app/', '_blank');
             }}
-            className="group relative px-8 py-4 md:px-12 md:py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-full font-bold text-lg md:text-xl shadow-[0_10px_40px_-10px_rgba(236,72,153,0.5)] border border-white/50 overflow-hidden"
+            className="group relative px-12 py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-full font-bold text-xl shadow-[0_10px_40px_-10px_rgba(236,72,153,0.5)] border border-white/50 overflow-hidden mt-12 mb-20"
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
             <span className="relative flex items-center gap-3">
-              Masuk Dashboard
+              Buka Menu Aplikasi
               <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </span>
           </motion.button>
@@ -607,8 +695,6 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tight font-display leading-none">8 Program Prioritas</h2>
-                  <p className="text-sm md:text-lg font-black text-slate-500 uppercase tracking-[0.3em]">Menuju Sekolah Unggul & Berkarakter</p>
                 </div>
 
                 <motion.div
@@ -625,18 +711,6 @@ export default function App() {
                     className="w-full max-w-3xl h-auto rounded-2xl shadow-md object-contain"
                   />
                 </motion.div>
-
-                <div className="text-center pt-8">
-                  <button 
-                    onClick={() => {
-                      setShowPeta(false);
-                      setShowSpip(true);
-                    }}
-                    className="px-10 py-4 bg-white/80 text-slate-800 rounded-2xl font-black shadow-xl hover:scale-105 hover:bg-white transition-all border border-white/80"
-                  >
-                    Selanjutnya
-                  </button>
-                </div>
               </div>
             </motion.div>
           ) : showSpip ? (
@@ -659,8 +733,6 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tight font-display leading-none">15 Indikator SPIP Anti Korupsi</h2>
-                  <p className="text-sm md:text-lg font-black text-slate-500 uppercase tracking-[0.3em]">Sistem Pengendalian Intern Pemerintah</p>
                 </div>
 
                 <div className="flex flex-col gap-8 relative z-10 max-w-4xl mx-auto w-full">
@@ -709,18 +781,6 @@ export default function App() {
                     />
                   </motion.div>
                 </div>
-
-                <div className="text-center pt-8">
-                  <button 
-                    onClick={() => {
-                      setShowSpip(false);
-                      setShowKorelasiProgram(true);
-                    }}
-                    className="px-10 py-4 bg-white/80 text-slate-800 rounded-2xl font-black shadow-xl hover:scale-105 hover:bg-white transition-all border border-white/80"
-                  >
-                    Selanjutnya
-                  </button>
-                </div>
               </div>
             </motion.div>
           ) : showKorelasiProgram ? (
@@ -743,8 +803,6 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tight font-display leading-none">Korelasi Program & SPIP</h2>
-                  <p className="text-sm md:text-lg font-black text-slate-500 uppercase tracking-[0.3em]">dengan 9 Aplikasi SIAP SPANJU</p>
                 </div>
 
                 <motion.div
@@ -761,18 +819,6 @@ export default function App() {
                     className="w-full max-w-4xl h-auto rounded-2xl shadow-md object-contain"
                   />
                 </motion.div>
-
-                <div className="text-center pt-8">
-                  <button 
-                    onClick={() => {
-                      setShowKorelasiProgram(false);
-                      setShowKorelasi(true);
-                    }}
-                    className="px-10 py-4 bg-white/80 text-slate-800 rounded-2xl font-black shadow-xl hover:scale-105 hover:bg-white transition-all border border-white/80"
-                  >
-                    Selanjutnya
-                  </button>
-                </div>
               </div>
             </motion.div>
           ) : showKorelasi ? (
@@ -795,8 +841,6 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tight font-display leading-none">Korelasi Integrasi SIAP SPANJU</h2>
-                  <p className="text-sm md:text-lg font-black text-slate-500 uppercase tracking-[0.3em]">dengan Sekolah Ramah Anak / SRA</p>
                 </div>
 
                 <motion.div
@@ -813,26 +857,6 @@ export default function App() {
                     className="w-full max-w-3xl h-auto rounded-2xl shadow-md object-contain"
                   />
                 </motion.div>
-
-                <div className="p-10 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-[2.5rem] text-slate-800 shadow-2xl relative overflow-hidden group border border-white/50">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-teal-300/20 blur-3xl -mr-20 -mt-20 group-hover:bg-teal-300/40 transition-all duration-700" />
-                  <div className="relative z-10 space-y-6">
-                    <h3 className="text-2xl font-black font-display tracking-tight text-slate-900">Kesimpulan</h3>
-                    <p className="text-slate-800 leading-relaxed font-medium text-lg">
-                      Kesembilan aplikasi SIAP SPANJU di SMPN 7 saling terintegrasi untuk mendukung implementasi Sekolah Ramah Anak, karena:
-                    </p>
-                    <ol className="list-decimal list-outside text-slate-700 text-base leading-relaxed font-medium space-y-2 ml-6">
-                      <li>Mendukung perlindungan dan kesejahteraan siswa.</li>
-                      <li>Mengembangkan kedisiplinan positif dan karakter.</li>
-                      <li>Menjamin pelayanan pendidikan yang aman, sehat, dan inklusif.</li>
-                      <li>Mengoptimalkan potensi dan prestasi siswa.</li>
-                    </ol>
-                    <div className="h-px bg-slate-300 w-full" />
-                    <p className="text-slate-700 text-base leading-relaxed font-medium">
-                      Dengan integrasi tersebut, sistem aplikasi SIAP SPANJU dapat menjadi pendukung utama manajemen sekolah dalam mewujudkan lingkungan belajar yang aman, nyaman, dan ramah anak.
-                    </p>
-                  </div>
-                </div>
 
                 <div className="text-center pt-8">
                   <button 
@@ -866,8 +890,6 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-black text-slate-800 tracking-tight font-display leading-none">Kilas Aplikasi SIAP SPANJU</h2>
-                  <p className="text-sm md:text-lg font-black text-slate-500 uppercase tracking-[0.3em]">Sistem Integrasi Aplikasi Pembinaan Siswa</p>
                 </div>
 
                 <motion.div
@@ -884,32 +906,6 @@ export default function App() {
                     className="w-full max-w-3xl h-auto rounded-2xl shadow-md object-contain"
                   />
                 </motion.div>
-
-                <div className="p-10 bg-gradient-to-br from-pink-50 to-blue-50 rounded-[2.5rem] text-slate-800 shadow-2xl relative overflow-hidden group border border-white/50">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-300/20 blur-3xl -mr-20 -mt-20 group-hover:bg-blue-300/40 transition-all duration-700" />
-                  <div className="relative z-10 space-y-6">
-                    <h3 className="text-2xl font-black font-display tracking-tight text-slate-900">Filosofi SIAP SPANJU</h3>
-                    <p className="text-slate-800 leading-relaxed font-bold text-lg italic">
-                      "Sekolah Sigap Menangani Permasalahan Siswa Secara Cepat dan Terdata"
-                    </p>
-                    <div className="h-px bg-slate-300 w-full" />
-                    <p className="text-slate-700 text-base leading-relaxed font-medium">
-                      Platform ini bukan sekadar kumpulan tautan, melainkan pusat kendali pembinaan karakter yang mengedepankan kecepatan respon dan akurasi data demi masa depan siswa yang lebih baik.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="text-center pt-8">
-                  <button 
-                    onClick={() => {
-                      setShowKilas(false);
-                      setShowPeta(true);
-                    }}
-                    className="px-10 py-4 bg-white/80 text-slate-800 rounded-2xl font-black shadow-xl hover:scale-105 hover:bg-white transition-all border border-white/80"
-                  >
-                    Selanjutnya
-                  </button>
-                </div>
               </div>
             </motion.div>
           ) : activeLink ? (
