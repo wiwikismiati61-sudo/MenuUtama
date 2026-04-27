@@ -364,9 +364,6 @@ export default function App() {
             whileHover={{ scale: 1.05, translateY: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              setHasEntered(true);
-              setIsSidebarOpen(true);
-              setShowKilas(false);
               window.open('https://siap-spanju.vercel.app/', '_blank');
             }}
             className="group relative px-12 py-5 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-full font-bold text-xl shadow-[0_10px_40px_-10px_rgba(236,72,153,0.5)] border border-white/50 overflow-hidden mt-8 mb-20"
