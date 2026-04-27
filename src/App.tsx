@@ -412,8 +412,8 @@ export default function App() {
           <motion.h1 
             className="flex flex-col gap-0.5 font-display"
           >
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-lg shadow-pink-100 rotate-3 overflow-hidden p-1">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center shadow-xl shadow-pink-100 rotate-6 overflow-hidden p-1.5 border border-white/80">
                 <img 
                   src="https://iili.io/KDFk4fI.png" 
                   alt="Logo" 
@@ -421,23 +421,26 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <span className="text-xl font-black tracking-tight text-slate-800">SIAP SPANJU</span>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">8 Program Prioritas</span>
+                <span className="text-2xl font-black tracking-tighter text-slate-800 leading-none">SPANJU</span>
+              </div>
             </div>
-            <span className="text-[8px] font-bold text-slate-500 uppercase tracking-[0.1em] leading-none ml-10">Sistem Integrasi Aplikasi Pembinaan Siswa</span>
+            <span className="text-[7px] font-bold text-slate-400 uppercase tracking-[0.15em] leading-none mt-2">Sistem Integrasi Aplikasi Pembinaan Siswa</span>
           </motion.h1>
           <button 
             onClick={() => setIsSidebarOpen(false)}
-            className="p-1.5 hover:bg-white/50 rounded-lg transition-colors text-slate-500 hover:text-slate-800"
+            className="p-1.5 hover:bg-slate-100 rounded-xl transition-colors text-slate-400 hover:text-slate-800"
           >
             <ChevronLeft size={20} />
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide min-w-[280px]">
-          {/* Kilas Menu */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-hide min-w-[280px]">
+          {/* Menu Aplikasi (Dashboard) */}
           <button
             onClick={() => {
-              setShowKilas(true);
+              setShowKilas(false);
               setShowSpip(false);
               setShowPeta(false);
               setShowKorelasiProgram(false);
@@ -445,137 +448,121 @@ export default function App() {
               setActiveLinkId(null);
             }}
             className={`
-              w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-300
-              ${showKilas 
-                ? `bg-white/80 shadow-sm translate-y-[-1px] ring-1 ring-white/50` 
+              w-full text-left p-4 rounded-2xl flex items-center gap-4 transition-all duration-300 relative group
+              ${(!showKilas && !showSpip && !showPeta && !showKorelasiProgram && !showKorelasi && !activeLinkId)
+                ? `bg-white shadow-xl shadow-slate-200/50 translate-y-[-2px] ring-1 ring-white/50` 
                 : 'hover:bg-white/50 text-slate-600'
               }
             `}
           >
-            <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center text-white shadow-sm shrink-0 transition-all duration-500 ${showKilas ? 'scale-110 rotate-3 shadow-pink-500/50' : ''}`}>
-              <Book size={20} />
+            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white shadow-lg shrink-0 transition-all duration-500 ${(!showKilas && !showSpip && !showPeta && !showKorelasiProgram && !showKorelasi && !activeLinkId) ? 'scale-110 rotate-3 shadow-rose-500/30' : ''}`}>
+              <LayoutDashboard size={24} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className={`font-black tracking-tight truncate text-[20px] uppercase ${showKilas ? 'text-slate-800' : 'text-slate-600'}`}>
-                Kilas Aplikasi SIAP SPANJU
+              <p className={`font-black tracking-tighter truncate text-xl uppercase ${(!showKilas && !showSpip && !showPeta && !showKorelasiProgram && !showKorelasi && !activeLinkId) ? 'text-slate-800' : 'text-slate-600'}`}>
+                Menu Aplikasi
               </p>
-              <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Referensi Dasar</p>
+              <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">Daftar Semua Aplikasi</p>
+              {(!showKilas && !showSpip && !showPeta && !showKorelasiProgram && !showKorelasi && !activeLinkId) && (
+                <motion.div layoutId="sidebar-active" className="absolute bottom-2 left-20 right-8 h-1 bg-gradient-to-r from-rose-500 to-transparent rounded-full" />
+              )}
             </div>
           </button>
 
-          {/* Peta Integrasi Menu */}
+          {/* Hotline Menu */}
           <button
             onClick={() => {
-              setShowPeta(true);
+              // Assuming Hotline opens something or just highlights for now as per image
+              setShowKilas(true); // Reusing Kilas state or we could make a dedicated one
+              setShowPeta(false);
               setShowSpip(false);
-              setShowKilas(false);
               setShowKorelasiProgram(false);
               setShowKorelasi(false);
               setActiveLinkId(null);
             }}
             className={`
-              w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-300
-              ${showPeta 
-                ? `bg-white/80 shadow-sm translate-y-[-1px] ring-1 ring-white/50` 
+              w-full text-left p-4 rounded-2xl flex items-center gap-4 transition-all duration-300 relative group
+              ${showKilas 
+                ? `bg-white shadow-xl shadow-slate-200/50 translate-y-[-2px] ring-1 ring-white/50` 
                 : 'hover:bg-white/50 text-slate-600'
               }
             `}
           >
-            <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white shadow-sm shrink-0 transition-all duration-500 ${showPeta ? 'scale-110 rotate-3 shadow-blue-500/50' : ''}`}>
-              <LayoutDashboard size={20} />
+            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-600 flex items-center justify-center text-white shadow-lg shrink-0 transition-all duration-500 ${showKilas ? 'scale-110 rotate-3 shadow-orange-500/30' : ''}`}>
+              <Zap size={24} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className={`font-black tracking-tight truncate text-[20px] uppercase ${showPeta ? 'text-slate-800' : 'text-slate-600'}`}>
-                8 Program Prioritas
+              <p className={`font-black tracking-tighter truncate text-xl uppercase ${showKilas ? 'text-slate-800' : 'text-slate-600'}`}>
+                Hotline
               </p>
-              <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">SMPN 7 Pasuruan</p>
+              <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">Layanan Bantuan</p>
+              {showKilas && (
+                <motion.div layoutId="sidebar-active" className="absolute bottom-2 left-20 right-8 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full" />
+              )}
             </div>
           </button>
 
-          {/* SPIP Menu */}
+          {/* Survey Menu */}
           <button
             onClick={() => {
               setShowSpip(true);
               setShowPeta(false);
+              setShowKilas(false);
               setShowKorelasiProgram(false);
               setShowKorelasi(false);
-              setShowKilas(false);
               setActiveLinkId(null);
             }}
             className={`
-              w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-300
+              w-full text-left p-4 rounded-2xl flex items-center gap-4 transition-all duration-300 relative group
               ${showSpip 
-                ? `bg-white/80 shadow-sm translate-y-[-1px] ring-1 ring-white/50` 
+                ? `bg-white shadow-xl shadow-slate-200/50 translate-y-[-2px] ring-1 ring-white/50` 
                 : 'hover:bg-white/50 text-slate-600'
               }
             `}
           >
-            <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white shadow-sm shrink-0 transition-all duration-500 ${showSpip ? 'scale-110 rotate-3 shadow-purple-500/50' : ''}`}>
-              <Shield size={20} />
+            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-700 to-black flex items-center justify-center text-white shadow-lg shrink-0 transition-all duration-500 ${showSpip ? 'scale-110 rotate-3 shadow-black/30' : ''}`}>
+              <ClipboardList size={24} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className={`font-black tracking-tight truncate text-[20px] uppercase ${showSpip ? 'text-slate-800' : 'text-slate-600'}`}>
-                15 Indikator SPIP
+              <p className={`font-black tracking-tighter truncate text-xl uppercase ${showSpip ? 'text-slate-800' : 'text-slate-600'}`}>
+                Survey Aplikasi
               </p>
-              <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Anti Korupsi</p>
+              <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">Survey Kepuasan</p>
+              {showSpip && (
+                <motion.div layoutId="sidebar-active" className="absolute bottom-2 left-20 right-8 h-1 bg-gradient-to-r from-slate-600 to-transparent rounded-full" />
+              )}
             </div>
           </button>
 
-          {/* Korelasi Program & SPIP Menu */}
-          <button
-            onClick={() => {
-              setShowKorelasiProgram(true);
-              setShowSpip(false);
-              setShowPeta(false);
-              setShowKorelasi(false);
-              setShowKilas(false);
-              setActiveLinkId(null);
-            }}
-            className={`
-              w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-300
-              ${showKorelasiProgram 
-                ? `bg-white/80 shadow-sm translate-y-[-1px] ring-1 ring-white/50` 
-                : 'hover:bg-white/50 text-slate-600'
-              }
-            `}
-          >
-            <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white shadow-sm shrink-0 transition-all duration-500 ${showKorelasiProgram ? 'scale-110 rotate-3 shadow-orange-500/50' : ''}`}>
-              <ClipboardList size={20} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className={`font-black tracking-tight truncate text-[20px] uppercase ${showKorelasiProgram ? 'text-slate-800' : 'text-slate-600'}`}>
-                Korelasi Program
-              </p>
-              <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">SPIP & SIAP SPANJU</p>
-            </div>
-          </button>
-
-          {/* Korelasi SRA Menu */}
+          {/* Management Menu */}
           <button
             onClick={() => {
               setShowKorelasi(true);
-              setShowKorelasiProgram(false);
               setShowSpip(false);
               setShowPeta(false);
               setShowKilas(false);
+              setShowKorelasiProgram(false);
               setActiveLinkId(null);
             }}
             className={`
-              w-full text-left p-3 rounded-xl flex items-center gap-3 transition-all duration-300
+              w-full text-left p-4 rounded-2xl flex items-center gap-4 transition-all duration-300 relative group
               ${showKorelasi 
-                ? `bg-white/80 shadow-sm translate-y-[-1px] ring-1 ring-white/50` 
+                ? `bg-white shadow-xl shadow-slate-200/50 translate-y-[-2px] ring-1 ring-white/50` 
                 : 'hover:bg-white/50 text-slate-600'
               }
             `}
           >
-            <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white shadow-sm shrink-0 transition-all duration-500 ${showKorelasi ? 'scale-110 rotate-3 shadow-emerald-500/50' : ''}`}>
-              <Activity size={20} />
+            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white shadow-lg shrink-0 transition-all duration-500 ${showKorelasi ? 'scale-110 rotate-3 shadow-emerald-500/30' : ''}`}>
+              <Shield size={24} />
             </div>
             <div className="flex-1 min-w-0">
-              <p className={`font-black tracking-tight truncate text-[20px] uppercase ${showKorelasi ? 'text-slate-800' : 'text-slate-600'}`}>
-                Korelasi SRA
+              <p className={`font-black tracking-tighter truncate text-xl uppercase ${showKorelasi ? 'text-slate-800' : 'text-slate-600'}`}>
+                Management
               </p>
-              <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Sekolah Ramah Anak</p>
+              <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none mt-1">Kelola Akses User</p>
+              {showKorelasi && (
+                <motion.div layoutId="sidebar-active" className="absolute bottom-2 left-20 right-8 h-1 bg-gradient-to-r from-emerald-500 to-transparent rounded-full" />
+              )}
             </div>
           </button>
 
@@ -656,6 +643,24 @@ export default function App() {
                 </div>
               );
             })}
+          </div>
+          {/* Exit Button at Bottom */}
+          <div className="p-4 pt-8">
+            <button
+              onClick={() => {
+                if (confirm('Apakah Anda yakin ingin keluar dari aplikasi?')) {
+                  window.close();
+                  // Fallback if window.close() is blocked
+                  setHasEntered(false);
+                }
+              }}
+              className="w-full flex items-center gap-4 p-4 rounded-2xl text-rose-600 font-black uppercase tracking-tighter hover:bg-rose-50 transition-all group"
+            >
+              <div className="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <ChevronLeft size={24} />
+              </div>
+              <span>Keluar Aplikasi</span>
+            </button>
           </div>
         </div>
       </motion.aside>
@@ -1011,10 +1016,12 @@ export default function App() {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="max-w-5xl mx-auto"
+                className="max-w-6xl mx-auto"
               >
-                <div className="mb-10 text-center">
-                  <div className="w-20 h-20 rounded-3xl bg-white/80 flex items-center justify-center shadow-xl shadow-pink-100/50 mx-auto rotate-3 overflow-hidden p-2 mb-6 border border-white/80 backdrop-blur-md">
+                {/* Header Section */}
+                <div className="mb-12 text-center relative">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-gradient-to-br from-blue-400/20 to-pink-400/20 blur-3xl -z-10" />
+                  <div className="w-24 h-24 rounded-3xl bg-white/90 flex items-center justify-center shadow-2xl mx-auto mb-6 border border-white/80 backdrop-blur-md p-2 hover:rotate-6 transition-transform duration-500">
                     <img 
                       src="https://iili.io/KDFk4fI.png" 
                       alt="Logo" 
@@ -1022,39 +1029,103 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-black text-slate-800 tracking-tight font-display mb-4">Pilih Aplikasi</h2>
-                  <p className="text-slate-500 text-lg font-medium">Silakan pilih aplikasi yang ingin Anda buka dari daftar di bawah ini.</p>
+                  <h2 className="text-4xl md:text-6xl font-black text-slate-800 tracking-tight font-display mb-4">Menu Aplikasi</h2>
+                  <p className="text-slate-500 text-lg md:text-xl font-bold uppercase tracking-[0.2em] opacity-80">Silakan pilih aplikasi yang ingin Anda buka dari daftar di bawah ini.</p>
                 </div>
 
+                {/* Survey Banner - UPDATED STYLE */}
+                <motion.a
+                  href="https://survey-kepuasan-alpha.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="block mb-12 p-8 md:p-12 bg-white/40 backdrop-blur-3xl rounded-[3rem] border border-white/50 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.05)] hover:bg-white/60 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group"
+                >
+                  <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-gradient-to-br from-pink-400/10 to-purple-500/10 blur-[100px] -mr-40 -mt-40 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div className="flex-1 space-y-6 text-center md:text-left">
+                      <div className="inline-flex items-center gap-3 px-5 py-2 rounded-2xl bg-purple-100/50 text-purple-700 font-black text-xs uppercase tracking-[0.2em] border border-purple-200/50">
+                        <span className="relative flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-500 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-600"></span>
+                        </span>
+                        Penting
+                      </div>
+                      <h3 className="text-4xl md:text-6xl font-black tracking-tighter font-display text-slate-800">
+                        Survey <span className="text-purple-600">Kepuasan</span> Layanan
+                      </h3>
+                      <p className="text-slate-600 text-lg md:text-2xl font-semibold leading-relaxed max-w-2xl">
+                        Suara Anda sangat berarti! Bantu kami meningkatkan kualitas layanan dengan mengisi survey singkat ini.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-col items-center gap-6 shrink-0">
+                      <div className="w-32 h-32 md:w-40 md:h-40 rounded-[3rem] bg-white shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-700 relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-purple-500/10 rounded-[3rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <MessageSquare size={64} className="text-purple-500 relative z-10" />
+                      </div>
+                      <button className="px-10 py-5 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-[2rem] font-black text-lg shadow-2xl shadow-purple-200 group-hover:scale-105 transition-all flex items-center gap-3 uppercase tracking-tighter">
+                        Mulai Survey <ExternalLink size={24} />
+                      </button>
+                    </div>
+                  </div>
+                </motion.a>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {EXTERNAL_APPS.map((app, index) => {
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  {/* We can mix dynamic links with static recommended ones if needed, but let's show all available links */}
+                  {links.map((app, index) => {
                     const Icon = ICON_MAP[app.icon] || Globe;
                     return (
-                      <motion.a
+                      <motion.button
                         key={app.id}
-                        href={app.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        onClick={() => handleLinkClick(app)}
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="group p-6 bg-white/80 backdrop-blur-xl rounded-[2rem] border border-white/50 shadow-xl shadow-slate-200/50 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/80 transition-all duration-300 hover:-translate-y-1 flex flex-col items-center text-center gap-4"
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.05 }}
+                        className="group p-8 bg-white/40 backdrop-blur-2xl rounded-[3rem] border border-white/50 shadow-xl hover:bg-white/60 transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center gap-6"
                       >
-                        <div className={`w-20 h-20 rounded-[1.5rem] bg-gradient-to-br ${app.color} flex items-center justify-center text-white shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                          <Icon size={32} />
+                        <div className={`w-24 h-24 rounded-[2rem] bg-gradient-to-br ${app.color} flex items-center justify-center text-white shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                          <Icon size={40} />
                         </div>
-                        <div>
-                          <h3 className="text-xl font-black text-slate-800 uppercase tracking-tight mb-1 group-hover:text-blue-600 transition-colors">{app.title}</h3>
-                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Aplikasi Eksternal</p>
+                        <div className="space-y-2">
+                          <h3 className="text-2xl font-black text-slate-800 uppercase tracking-tighter leading-none">{app.title}</h3>
+                          <div className="w-12 h-1 bg-gradient-to-r from-pink-500 to-transparent mx-auto rounded-full group-hover:w-20 transition-all duration-500" />
                         </div>
-                        <div className="mt-2 px-4 py-2 bg-slate-50 rounded-xl flex items-center gap-2 text-slate-600 text-sm font-bold group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
-                          <ExternalLink size={16} />
-                          Buka Aplikasi
+                        <div className="px-6 py-3 bg-white/80 rounded-2xl flex items-center gap-2 text-slate-600 text-sm font-black transition-all group-hover:bg-slate-800 group-hover:text-white shadow-sm">
+                          {app.displayMode === 'iframe' ? 'Buka Dashboard' : 'Kunjungi Situs'}
+                          <ChevronRight size={16} />
                         </div>
-                      </motion.a>
+                      </motion.button>
                     );
                   })}
+                  
+                  {/* Add App Button */}
+                  <motion.button
+                    onClick={() => {
+                      const title = prompt('Nama Aplikasi:');
+                      const url = prompt('URL Aplikasi (https://...):');
+                      if (title && url) {
+                        const newLink: AppLink = {
+                          id: Date.now().toString(),
+                          title,
+                          url,
+                          displayMode: 'iframe',
+                          color: APP_COLORS[links.length % APP_COLORS.length],
+                          icon: 'Globe'
+                        };
+                        setLinks([...links, newLink]);
+                      }
+                    }}
+                    className="p-8 bg-white/20 backdrop-blur-md rounded-[3rem] border-2 border-dashed border-white/50 flex flex-col items-center justify-center gap-4 text-slate-400 hover:text-slate-600 hover:border-slate-400 hover:bg-white/40 transition-all duration-300"
+                  >
+                    <div className="w-16 h-16 rounded-full border-2 border-current flex items-center justify-center">
+                      <Plus size={32} />
+                    </div>
+                    <span className="font-black uppercase tracking-widest text-sm text-center">Tambah Aplikasi</span>
+                  </motion.button>
                 </div>
               </motion.div>
             </div>
