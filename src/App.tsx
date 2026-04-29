@@ -72,8 +72,8 @@ const APP_COLORS = [
 const EXTERNAL_APPS: any[] = [];
 
 // GANTI LINK DI BAWAH INI DENGAN LINK GAMBAR ANDA YANG SUDAH DIUPLOAD KE INTERNET (misal: imgbb.com, imgur.com, dll)
-const KILAS_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/3yssw38v/Gemini-Generated-Image-gporzagporzagpor.png";
-const PETA_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/VWYCc9Cc/Gemini-Generated-Image-a54l2ma54l2ma54l.png";
+const KILAS_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/DHLfpb0t/Gemini-Generated-Image-52o3c52o3c52o3c5.png";
+const PETA_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/FLfhS872/Gemini-Generated-Image-1jgck21jgck21jgc.png";
 const KORELASI_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co/5wM2Bd4/gambar-3.jpg";
 
 export default function App() {
