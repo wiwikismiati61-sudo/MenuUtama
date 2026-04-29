@@ -72,7 +72,7 @@ const APP_COLORS = [
 const EXTERNAL_APPS: any[] = [];
 
 // GANTI LINK DI BAWAH INI DENGAN LINK GAMBAR ANDA YANG SUDAH DIUPLOAD KE INTERNET (misal: imgbb.com, imgur.com, dll)
-const KILAS_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/RTQ46yKG/Gemini-Generated-Image-dmq00ddmq00ddmq0.png";
+const KILAS_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/gZMGhsGm/Gemini-Generated-Image-6i9kqx6i9kqx6i9k.png";
 const PETA_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co.com/FLfhS872/Gemini-Generated-Image-1jgck21jgck21jgc.png";
 const KORELASI_IMAGE_URL = "https://wsrv.nl/?url=i.ibb.co/5wM2Bd4/gambar-3.jpg";
 
